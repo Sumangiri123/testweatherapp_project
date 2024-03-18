@@ -40,12 +40,13 @@
             margin-bottom: 5px;
         }
         
-        .form input[type="text"] {
+        .form input[type="text"], .form select {
             width: 100%;
             padding: 10px;
             margin-bottom: 20px;
             border-radius: 5px;
             border: 1px solid #ccc;
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
         }
         
         .form input[type="submit"] {
@@ -76,13 +77,14 @@
         <div class="form">
             <form action="/weatherapp" method="POST">
                 <label for='city'>Enter city:</label>
-                <input type="text" name="city" id="city">
+                <input type="text" name="city" id="city" required>
 
-                <label for='units'>Enter Units:</label>
-                <input type="text" name="units" id="units">
-
-                <label for='appid'>Enter your API KEY:</label>
-                <input type="text" name="appid" id="appid">
+                <label for='units'>Select Units:</label>
+                <select name="units" id="units">
+                    <option value="metric">Metric</option>
+                    <option value="standard">Standard</option>
+                    <option value="imperial">Imperial</option>
+                </select>
 
                 <input type="submit" value="Search">
             </form>
@@ -90,3 +92,4 @@
     </div>
 </body>
 </html>
+

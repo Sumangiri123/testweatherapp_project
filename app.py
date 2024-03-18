@@ -20,7 +20,7 @@ def get_weatherdata():
     param = {
         'q' : request.form.get('city'),
         'units' : request.form.get('units'),
-        'appid' : request.form.get('appid')
+        'appid' : 'b32d3fae6e7d25efd9320fd3b79569ae',
     }
     
     response = requests.get(url,params= param)
