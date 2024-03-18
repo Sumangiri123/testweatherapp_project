@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Data</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/weather.css') }}">
+    <style>
+        :root {
+            --primary-color: #007BFF;
+            --secondary-color: #0056b3;
+            --background-color: rgba(255, 255, 255, 0.8);
+            --text-color: #333;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .weather-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            background-color: var(--background-color);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 800px;
+        }
+        
+        .weather-info h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--text-color);
+            text-align: center; /* Center the heading text */
+        }
+        
+        .weather-info p {
+            margin-bottom: 10px;
+            font-size: 18px;
+            line-height: 1.6;
+        }
+        
+        /* Additional styling for data points */
+        .weather-info p {
+            transition: color 0.3s ease;
+        }
+        
+        .weather-info p:hover {
+            color: var(--primary-color);
+        }
+        
+        .header {
+            font-size: 36px; /* Larger font size for emphasis */
+            font-weight: bold; /* Bold weight for clarity */
+            text-align: center; /* Centered text for a balanced look */
+            color: var(--primary-color); /* A vibrant color for visibility */
+            margin-bottom: 30px; /* Space below the header for better readability */
+            transition: color 0.3s ease; /* Smooth color transition for hover effect */
+        }
+        
+        .header:hover {
+            color: var(--secondary-color); /* Slightly darker color on hover for interactivity */
+        }
+        
+        @media (max-width: 768px) {
+            .weather-info {
+                width: 95%;
+            }
+        }        
+    </style>
+</head>
+<body>
+    <div class="weather-info">
+        <h2 class="header">Weather Information for {{ weather_data.name }}</h2><br/>
+        <br/>
+
+        <p>Temperature: {{ weather_data.main.temp }}°C</p>
+        <p>Feels Like: {{ weather_data.main.feels_like }}°C</p>
+        <p>Humidity: {{ weather_data.main.humidity }}%</p>
+        <p>Pressure: {{ weather_data.main.pressure }} hPa</p>
+        <p>Wind Speed: {{ weather_data.wind.speed }} m/s</p>
+        <p>Wind Direction: {{ weather_data.wind.deg }}°</p>
+        <p>Visibility: {{ weather_data.visibility }} m</p>
+        <p>Weather: {{ weather_data.weather[0].description }}</p>
+        <p>Latitude: {{ weather_data.coord.lat }}</p>
+        <p>Longitude: {{ weather_data.coord.lon }}</p>
+        <p>Cloud Coverage: {{ weather_data.clouds.all }}%</p>
+        <p>Country: {{ weather_data.sys.country }}</p>
+        <p>Timezone: {{ weather_data.timezone }}</p>
+        <p>Minimum Temperature: {{ weather_data.main.temp_min }}°C</p>
+        <p>Maximum Temperature: {{ weather_data.main.temp_max }}°C</p>
+        <p>Sunrise: {{ weather_data.sys.sunrise | datetimeformat }}</p>
+        <p>Sunset: {{ weather_data.sys.sunset | datetimeformat }}</p>
+    </div>
+</body>
+</html>

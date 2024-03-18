@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Search Page</title>
+    <style>
+        :root {
+            --primary-color: #007BFF;
+            --secondary-color: #0056b3;
+            --background-color: rgba(255, 255, 255, 0.8);
+            --text-color: #333;
+        }
+        
+        body {
+            background-image: url('path/to/your/background-image.jpg');
+            background-size: cover;
+            background-position: center;
+            font-family: Arial, sans-serif;
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .content {
+            width: 80%;
+            padding: 20px;
+            background-color: var(--background-color);
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form {
+            margin-top: 20px;
+        }
+        
+        .form label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .form input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+        
+        .form input[type="submit"] {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .form input[type="submit"]:hover {
+            background-color: var(--secondary-color);
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <h1 style="text-align: center">Search</h1>
+    
+        <div class="form">
+            <form action="/weatherapp" method="POST">
+                <label for='city'>Enter city:</label>
+                <input type="text" name="city" id="city">
+
+                <label for='units'>Enter Units:</label>
+                <input type="text" name="units" id="units">
+
+                <label for='appid'>Enter your API KEY:</label>
+                <input type="text" name="appid" id="appid">
+
+                <input type="submit" value="Search">
+            </form>
+        </div>
+    </div>
+</body>
+</html>
